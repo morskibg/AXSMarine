@@ -11,3 +11,4 @@ max_workers: int = 10 -> number of proceses for each batch of db rows,
 mode: str = 'async' -> may be 'async' or 'sync'. If sync is choosen all 
 data retriving and computations will be done sequentialy.
 ```
+Added interactive 'playground.ipynb' for simple visualizations.
