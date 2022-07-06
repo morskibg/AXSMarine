@@ -48,7 +48,7 @@ def input_args_parser(argv: List[str]) -> NamedTuple :
     """
     USAGE_MSG =(
     """
-        Usage: main.py --kwargs | -k db_name=task table_name=cities batch_size=64 max_workers=10
+        Usage: main.py --kwargs | -k db_name=task table_name=cities batch_size=64 max_workers=10 mode=async
         db_name: str = 'task' -> name of the sqlite databse,
         table_name: str = 'cities' -> name of the table,
         batch_size: int = 64 -> number of db rows to be procesed its own thread,
