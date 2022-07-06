@@ -18,8 +18,7 @@ def get_nearest_store(longitude: float, latitude: float) -> dict:
 
     store_id = random.randint(1, 5000000)
     new_latitude, new_longitude = _get_store_coordinates(latitude, longitude)    
-    time_to_sleep = 0.1
-    # time_to_sleep = round(random.uniform(0.5, 5.0), 1)
+    time_to_sleep = round(random.uniform(0.5, 5.0), 1)
     time.sleep(time_to_sleep)
 
     return {"store_id": store_id, "latitude": new_latitude, "longitude": new_longitude}

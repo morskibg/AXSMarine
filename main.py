@@ -38,49 +38,7 @@ async def main(kwargs_tupple: NamedTuple) -> None:
 
     t2 = time.perf_counter()
     module_logger.info(f"Total elapsed time {t2-t1:.4f} second(s)")
-   
-
-    # with ProcessPoolExecutor() as process_pool:
-          
-    #     loop: AbstractEventLoop = asyncio.get_running_loop()
-    #     calls = [partial(partial(proceed_batch_data, batch),idx) for idx,batch in enumerate(batches)] 
-    #     call_coros = []
-    #     for call in calls:
-    #         call_coros.append(await loop.run_in_executor(process_pool, call))
-    #     await asyncio.gather(*call_coros)
-
-  
-    
-
-    # for idx,batch in enumerate(batches):
-    #     proceed_batched(batch,idx)
-
-    # coroutines = [proceed_batch_data(batch, idx)
-    #               for idx, batch in enumerate(batches)]
-
-    # await asyncio.gather(*coroutines)
-
-
-
-
-
-    # with ProcessPoolExecutor() as process_pool:
-    #     nums = [1, 100000000, 3, 5, 22]
-    #     loop: AbstractEventLoop = asyncio.get_running_loop()
-    #     calls: List[partial[int]] = [partial(partial(count, num),idx) for idx,num in enumerate(nums)] 
-    #     call_coros = []
-    #     for call in calls:
-    #         call_coros.append(loop.run_in_executor(process_pool, call))
-    #     await asyncio.gather(*call_coros)
-        
-     
-    
-    # coroutines = [proceed_batch_data(batch, idx)
-    #               for idx, batch in enumerate(batches)]
-
-    # await asyncio.gather(*coroutines)
-
-  
+    print(f"Total elapsed time {t2-t1:.4f} second(s)")
 
 if __name__ == "__main__":
     kwargs_tupple = input_args_parser(sys.argv)

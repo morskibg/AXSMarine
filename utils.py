@@ -10,7 +10,7 @@ import pandas as pd
 from haversine import haversine
 
 import store_locator
-from settings import DB_NAME, TABLE_NAME, BATCH_SIZE, MAX_WORKERS
+from settings import DB_NAME, TABLE_NAME, BATCH_SIZE, MAX_WORKERS, MODE
 from logger import get_logger
 
 module_logger = get_logger(__name__) 
@@ -62,9 +62,9 @@ def input_args_parser(argv: List[str]) -> NamedTuple :
         'table_name':TABLE_NAME,
         'batch_size':BATCH_SIZE,
         'max_workers':MAX_WORKERS,
-        'mode':'async'
+        'mode':MODE
     }
-    print(argv)
+    
     if len(argv) > 1:
         try:
             if argv[1] not in ['--kwargs','-k']:
@@ -137,12 +137,15 @@ def calculate_coordinates_and_update_df(curr_df: pd.DataFrame, proces_num: int, 
     Returns:
         pd.DataFrame: updated dataframe 
     """
-    t1 = time.perf_counter()   
-    # curr_df[['store_latitude', 'store_longitude', 'store_distance']] = None, None, None
+    t1 = time.perf_counter()  
+
+    
     curr_df[['store_latitude', 'store_longitude', 'store_distance']] = curr_df.apply(
         lambda x: calculate_store_coordinates_and_distance(
                     x['latitude'], x['longitude']), axis=1
         )
+    # use comented line to fill store data with None
+    # curr_df[['store_latitude', 'store_longitude', 'store_distance']] = None, None, None
     t2 = time.perf_counter()   
     print(
         'Finished running coordinates and distance calculation from ' +
