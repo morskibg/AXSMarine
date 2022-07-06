@@ -138,11 +138,11 @@ def calculate_coordinates_and_update_df(curr_df: pd.DataFrame, proces_num: int, 
         pd.DataFrame: updated dataframe 
     """
     t1 = time.perf_counter()   
-    curr_df[['store_latitude', 'store_longitude', 'store_distance']] = None, None, None
-    # curr_df[['store_latitude', 'store_longitude', 'store_distance']] = curr_df.apply(
-    #     lambda x: calculate_store_coordinates_and_distance(
-    #                 x['latitude'], x['longitude']), axis=1
-    #     )
+    # curr_df[['store_latitude', 'store_longitude', 'store_distance']] = None, None, None
+    curr_df[['store_latitude', 'store_longitude', 'store_distance']] = curr_df.apply(
+        lambda x: calculate_store_coordinates_and_distance(
+                    x['latitude'], x['longitude']), axis=1
+        )
     t2 = time.perf_counter()   
     print(
         'Finished running coordinates and distance calculation from ' +
