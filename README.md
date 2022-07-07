@@ -1,4 +1,4 @@
-# AXSMarine
+
 1. Create virtual enviroment and activate it (optional)
 2. Install dependencies from 'requirements.txt'
 3. Run python main.py
