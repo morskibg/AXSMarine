@@ -118,8 +118,8 @@ def get_batches_from_cities_indices(indices: List[int], batch_size: int) -> List
         List[List[int]]: List of Lists of cities' indices
     """    
     if indices:
-        batch_size = BATCH_SIZE if len(indices) % BATCH_SIZE != 1 else BATCH_SIZE - 1
-        batches = [indices[i:i + BATCH_SIZE]
+        batch_size = batch_size if len(indices) % batch_size != 1 else batch_size - 1
+        batches = [indices[i:i + batch_size]
                    for i in range(0, len(indices), batch_size)]   
 
         return batches
